@@ -1,0 +1,25 @@
+body{
+    display: flex;
+    flex-direction: column;
+}
+
+h1 {
+    color:blue;
+    font-size: 46px;
+}
+
+.Subscribe{
+    padding: 30px;
+    font-size: 26px;
+    border: 3px solid orange;
+    border-radius: 20px;
+    background-color: black;
+    color: white;
+    transition: 0.2s;
+}
+
+.Subscribe:hover{
+    color: black;
+    background-color: white;
+    cursor: pointer;
+}

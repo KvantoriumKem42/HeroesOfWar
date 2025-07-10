@@ -1,0 +1,144 @@
+.compact-wwii-menu {
+            --menu-bg: rgba(43, 34, 24, 0.95);
+            --menu-border: #5d4037;
+            --button-bg: linear-gradient(to bottom, #5d4037, #3e2723);
+            --button-hover: linear-gradient(to bottom, #6d4c41, #4e342e);
+            --button-text: #e0d3a8;
+            --button-border: #8d6e63;
+            --button-hover-border: #a1887f;
+            --accent-color: #d4af37;
+            --scrollbar-thumb: #5d4037;
+            
+            display: block;
+            width: 100%;
+            max-width: 100%;
+            background: var(--menu-bg);
+            border: 2px solid var(--menu-border);
+            border-radius: 4px;
+            padding: 10px;
+            position: relative;
+            overflow: hidden;
+            box-sizing: border-box;
+        }
+        
+        .compact-wwii-menu menu {
+            display: flex;
+            flex-wrap: nowrap;
+            justify-content: space-evenly;
+            gap: 10px;
+            list-style: none;
+            padding: 5px 10px;
+            margin: 0;
+            overflow-x: auto;
+            scrollbar-width: thin;
+            scrollbar-color: var(--scrollbar-thumb) transparent;
+        }
+        
+        /* Стилизация скроллбара */
+        .compact-wwii-menu menu::-webkit-scrollbar {
+            height: 6px;
+        }
+        
+        .compact-wwii-menu menu::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        
+        .compact-wwii-menu menu::-webkit-scrollbar-thumb {
+            background: var(--scrollbar-thumb);
+            border-radius: 3px;
+        }
+        
+        .compact-wwii-menu menu li {
+            flex: 0 0 auto;
+        }
+        
+        .compact-wwii-menu menu li a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            min-width: 100px;
+            height: 50px;
+            padding: 0 15px;
+            background: var(--button-bg);
+            border: 1px solid var(--button-border);
+            border-radius: 3px;
+            color: var(--button-text);
+            font-size: 1.1rem;
+            font-weight: bold;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            white-space: nowrap;
+            box-shadow: 
+                0 2px 4px rgba(0, 0, 0, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
+        
+        .compact-wwii-menu menu li a::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: 0.5s;
+        }
+        
+        .compact-wwii-menu menu li a:hover {
+            transform: translateY(-3px);
+            background: var(--button-hover);
+            color: #fff;
+            box-shadow: 
+                0 4px 8px rgba(0, 0, 0, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            border-color: var(--button-hover-border);
+        }
+        
+        .compact-wwii-menu menu li a:hover::before {
+            left: 100%;
+        }
+        
+        .compact-wwii-menu menu li a:active {
+            transform: translateY(1px);
+        }
+        
+        /* Декоративные элементы */
+        .compact-wwii-menu::before,
+        .compact-wwii-menu::after {
+            content: "★";
+            position: absolute;
+            color: var(--accent-color);
+            font-size: 1.2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            opacity: 0.7;
+        }
+        
+        .compact-wwii-menu::before {
+            left: 5px;
+        }
+        
+        .compact-wwii-menu::after {
+            right: 5px;
+        }
+        
+        /* Индикатор прокрутки */
+        .scroll-indicator {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--accent-color);
+            font-size: 1.5rem;
+            opacity: 0.6;
+            display: none;
+        }
+        
+        @media (hover: none) {
+            .scroll-indicator {
+                display: block;
+            }
+        }
